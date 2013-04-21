@@ -4,9 +4,9 @@ import com.balancer.service.*;
 
 public class Service {
 
-	public WheaterInformation connect() {
-		WheaterInformation wi;
-		WheaterChannel wheaterChannel = new WheaterChannel();
+	public WeatherInformation connect() {
+		WeatherInformation wi;
+		WeatherChannel wheaterChannel = new WeatherChannel();
 		wi = wheaterChannel.getLocalWheatherByIP();
 		
 		return wi;

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.balancer.data.Controller;
 //import com.balancer.data.Data;
-import com.balancer.service.WheaterInformation;
+import com.balancer.service.WeatherInformation;
 
 public class ControllerTest {
 
@@ -14,7 +14,7 @@ public class ControllerTest {
 	public void shoud_start_controller_and_turn_it_down() throws InterruptedException {
 		Controller controller = new Controller(); 
 		
-		controller.setData(new WheaterInformation(10));
+		//controller.setData(new WeatherInformation(10));
 		
 		if(true){
 			controller.sleep(100);

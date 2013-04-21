@@ -1,7 +1,6 @@
 package com.balancer.data;
 
 import java.util.ArrayList;
-
 import com.balancer.service.*;
 
 
@@ -10,7 +9,9 @@ public class Controller extends Thread {
 	
 	private ArrayList<Device> devices;
 	
-	private WheaterInformation data;
+	private WeatherInformation WeatherInformation;
+	
+	private float desiredTemperature;
 
 	private boolean keepAlive;
 	
@@ -27,11 +28,27 @@ public class Controller extends Thread {
 	public void run() {
 		super.run();
 		while (keepAlive) {
-			Service serv = new Service();
-			this.data = serv.connect();
+			//Service serv = new Service();
+			//this.WeatherInformation = serv.connect();
 			
-			for (Device device : this.devices) {
-				device.checkWeather(data);
+			WeatherInformation weatherInformation[] = 
+					{new WeatherInformation(33),
+					 new WeatherInformation(28), new WeatherInformation(31), new WeatherInformation(27),
+					 new WeatherInformation(30), new WeatherInformation(26)};
+			
+			for (int i = 0; i < weatherInformation.length; i++) {
+				System.out.println("==============================");
+				System.out.println("Local Temperature:" + weatherInformation[i].getTemperature());
+				for (Device device : this.devices) {
+					device.checkWeather(weatherInformation[i], this.desiredTemperature);
+					System.out.println("Turned On:" + device.isTurnedOn());
+					System.out.println("==============================");
+				}
+				try {
+					Controller.sleep(10000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 			try {
 				Thread.sleep(Constants.TIME_TO_SLEEP);
@@ -52,12 +69,12 @@ public class Controller extends Thread {
 	}
 	
 	
-	public WheaterInformation getData() {
-		return data;
+	public WeatherInformation getWeatherInformation() {
+		return WeatherInformation;
 	}
 
-	public void setData(WheaterInformation data) {
-		this.data = data;
+	public void setWeatherInformation(WeatherInformation WeatherInformation) {
+		this.WeatherInformation = WeatherInformation;
 	}
 	
 }
