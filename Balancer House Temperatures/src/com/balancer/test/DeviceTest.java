@@ -10,7 +10,7 @@ import com.balancer.data.Controller;
 import com.balancer.data.Data;
 import com.balancer.data.Device;
 import com.balancer.data.Service;
-import com.balancer.service.WheaterInformation;
+import com.balancer.service.WeatherInformation;
 
 public class DeviceTest {
 
@@ -18,7 +18,7 @@ public class DeviceTest {
 	public void should_verify_external_temperature_enviroment() {
 		Service service = new Service();
 		
-		WheaterInformation data = service.connect();
+		WeatherInformation data = service.connect();
 				data.getTemperature();
 
 		
@@ -41,7 +41,7 @@ public class DeviceTest {
 	@Test
 	public void should_turn_on_all_devices_inside_the_house() {
 
-		WheaterInformation data = new WheaterInformation(35);
+		WeatherInformation data = new WeatherInformation(35);
 		
 		ArrayList<Device> house = new ArrayList<Device>(10);
 		
@@ -52,7 +52,7 @@ public class DeviceTest {
 		boolean result = true;
 		
 		for (Device device : house) {
-			device.checkWeather(data);
+			//device.checkWeather(data);
 			if(!device.isTurnedOn()){
 				result = false;
 			}

@@ -1,6 +1,6 @@
 package com.balancer.data;
 
-import com.balancer.service.WheaterInformation;
+import com.balancer.service.WeatherInformation;
 
 
 public class Device extends Thread {
@@ -17,19 +17,16 @@ public class Device extends Thread {
 		return turnedOn;
 	}
 
-	public boolean checkWeather(WheaterInformation data) {
+	public boolean checkWeather(WeatherInformation data, float temperatureDesired) {
 		
 		boolean result = false;
-		if(data.getTemperature() >= Constants.TEMPERATURE_FACTOR){
+		if(data.getTemperature() > temperatureDesired){
 			result = true;
 			turnedOn = true;
 		}else{
 			turnOff();
 		}
-		System.out.println("==============================");
-		System.out.println("Local Temperature:" + data.getTemperature());
-		System.out.println("Turned On:" + isTurnedOn());
-		System.out.println("==============================");
+
 		return result;
 	}
 	

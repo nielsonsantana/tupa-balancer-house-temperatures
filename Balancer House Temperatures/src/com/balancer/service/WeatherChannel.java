@@ -7,11 +7,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class WheaterChannel {
+public class WeatherChannel {
 	
 	private final String baseApiUrl = "http://api.wunderground.com/api/70c15bc4cb67a083";
 	
-	public WheaterInformation getWheather(String country, String city) {
+	public WeatherInformation getWheather(String country, String city) {
 		String url = this.baseApiUrl + "/conditions/q/" + country + "/" + city + ".json";
 		String json = this.getJsonFromUrl(url);
 		
@@ -19,14 +19,14 @@ public class WheaterChannel {
 		return this.getWheaterInformationFromJson(json);
 	}
 	
-	public WheaterInformation getWheather(double latitude, double longitude) {
+	public WeatherInformation getWheather(double latitude, double longitude) {
 		String url = this.baseApiUrl + "/conditions/q/" + Double.toString(latitude) + "," + Double.toString(longitude) + ".json";
 		String json = this.getJsonFromUrl(url);
 		
 		return this.getWheaterInformationFromJson(json);
 	}
 	
-	public WheaterInformation getLocalWheatherByIP() {
+	public WeatherInformation getLocalWheatherByIP() {
 		String url = this.baseApiUrl + "/conditions/q/autoip.json";
 		String json = this.getJsonFromUrl(url);
 		
@@ -62,9 +62,9 @@ public class WheaterChannel {
 		return null;
 	}
 	
-	private WheaterInformation getWheaterInformationFromJson(String json) {
+	private WeatherInformation getWheaterInformationFromJson(String json) {
 		JSONParser parser = new JSONParser();
-		WheaterInformation wi = new WheaterInformation();
+		WeatherInformation wi = new WeatherInformation();
 		
 		try {
 	 

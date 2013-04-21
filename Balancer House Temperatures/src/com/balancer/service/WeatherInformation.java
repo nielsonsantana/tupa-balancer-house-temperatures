@@ -1,17 +1,17 @@
 package com.balancer.service;
 
-public class WheaterInformation {
+public class WeatherInformation {
 	
 	
 	private double temperature;
 	private double feelsLike;
 	
-	public WheaterInformation() {
+	public WeatherInformation() {
 		super();
 	}
 	
 	
-	public WheaterInformation(float temperature) {
+	public WeatherInformation(float temperature) {
 		this.temperature = temperature;
 	}
 	

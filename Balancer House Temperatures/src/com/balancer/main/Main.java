@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.balancer.data.Controller;
 import com.balancer.data.Data;
-import com.balancer.service.WheaterInformation;
+import com.balancer.service.WeatherInformation;
 
 public class Main {
 
@@ -18,18 +18,9 @@ public class Main {
 		
 		Controller controller = new Controller();
 		
-		do {
+		int temperature = 27;
 			
-			int temperature = 22 + (int)(Math.random()*40);
-			
-			WheaterInformation data = new WheaterInformation(temperature);
-			controller.setDesiredTemperature(temperature);
-			
-			controller.setData(data);
-			controller.start();
-			entry = scanner.nextInt();
-			
-		} while (entry != 0);
-		
+		controller.setDesiredTemperature(temperature);
+		controller.start();
 	}
 }
