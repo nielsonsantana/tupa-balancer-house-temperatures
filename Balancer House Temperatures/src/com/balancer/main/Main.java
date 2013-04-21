@@ -23,6 +23,7 @@ public class Main {
 			int temperature = 22 + (int)(Math.random()*40);
 			
 			WheaterInformation data = new WheaterInformation(temperature);
+			controller.setDesiredTemperature(temperature);
 			
 			controller.setData(data);
 			controller.start();
