@@ -17,13 +17,10 @@ public class Controller extends Thread {
 	public Controller(){
 		this.devices = new ArrayList<Device>();
 		this.keepAlive = true;
-		this.addDevices();
 	}
 	
-	private void addDevices(){
-		for (int i = 0; i < 10; i++) {
-			devices.add(new Device(false));
-		}
+	public void addDevice(Device device){
+		devices.add(device);
 	}
 	
 	@Override
