@@ -11,8 +11,6 @@ public class Controller extends Thread {
 	private ArrayList<Device> devices;
 	
 	private WheaterInformation data;
-	
-	private float desiredTemperature;
 
 	private boolean keepAlive;
 	
@@ -42,6 +40,7 @@ public class Controller extends Thread {
 				e.printStackTrace();
 			}
 		}
+		
 	}
 	
 	public ArrayList<Device> getDevices(){
@@ -59,11 +58,6 @@ public class Controller extends Thread {
 
 	public void setData(WheaterInformation data) {
 		this.data = data;
-	}
-
-	public void setDesiredTemperature(float temperature) {
-		this.desiredTemperature = temperature;
-		
 	}
 	
 }
