@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Balancer House Temperature</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="smart_house">SMART HOUSE</string>
+    <string name="data_temperature">Data Temperature:</string>
+    <string name="smart_house_button">Start</string>
+    <string name="title_activity_house">HouseActivity</string>
+    <string name="description_content_house">Data Simulation</string>
+
+</resources>

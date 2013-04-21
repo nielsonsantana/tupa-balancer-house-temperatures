@@ -15,7 +15,9 @@ public class Controller extends Thread {
 
 	private boolean keepAlive;
 	
-	public Controller(){
+	private HouseActivity house;
+	
+	public Controller(HouseActivity house){
 		this.devices = new ArrayList<Device>();
 		this.keepAlive = true;
 	}
@@ -75,6 +77,15 @@ public class Controller extends Thread {
 
 	public void setWeatherInformation(WeatherInformation WeatherInformation) {
 		this.WeatherInformation = WeatherInformation;
+	}
+	
+
+	public float getDesiredTemperature() {
+		return desiredTemperature;
+	}
+
+	public void setDesiredTemperature(float desiredTemperature) {
+		this.desiredTemperature = desiredTemperature;
 	}
 	
 }
